@@ -19,7 +19,8 @@ temp = temp->prev;
 }
 if (temp == NULL)
 {
-current->prev->next = current->next /* insert at the beginning of list */
+/* insert at the beginning of list */
+current->prev->next = current->next;
 if (current->next != NULL)
 {
 current->next->prev = current->prev;
