@@ -29,6 +29,7 @@ current->prev = NULL;
 current->next = *list;
 (*list)->prev = current;
 *list = current;
+print_list(*list);
 }
 else
 {
@@ -45,8 +46,8 @@ if (temp->next != NULL)
 temp->next->prev = current;
 }
 temp->next = current;
-}
 print_list(*list);
+}
 current = current->next;
 }
 }
