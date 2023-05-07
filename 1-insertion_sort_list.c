@@ -9,15 +9,34 @@
  */
 void insertion_sort_list(listint_t **list)
 {
+listint_t *head = NULL;
 while (*list != NULL)
 {
 listint_t *iter = *list;
 *list = (*list)->next;
-while (iter != NULL && (*list)->n > iter->n)
+if (head == NULL || (*list)->n < iter->n)
 {
-(*list)->next->n = (*list)->n;
-iter = iter->next;
-print_list(*list);
+iter->next = head;
+head = iter;
+head->prev = NULL;
 }
-(*list)->next->n = iter->n;
+else
+{
+while (head != NULL)
+{
+if (head->next == NULL || iter->n < head->next->n)
+{
+iter->next = head->next;
+head->next = iter;
+if (head->prev != NULL)
+{
+head->prev = head->prev->prev;
+}
+print_list(*list);
+break;
+}
+head = head->next;
+}
+}
+}
 }
