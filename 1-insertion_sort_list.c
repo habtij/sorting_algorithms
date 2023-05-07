@@ -32,6 +32,7 @@ if (head->prev != NULL)
 {
 head->prev = head->prev->prev;
 }
+(*list) = head;
 print_list(*list);
 break;
 }
