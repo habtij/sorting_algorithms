@@ -27,7 +27,7 @@ current->next->prev = current->prev;
 }
 current->prev = NULL;
 current->next = *list;
-(*llist)->prev = current;
+(*list)->prev = current;
 *list = current;
 }
 else
