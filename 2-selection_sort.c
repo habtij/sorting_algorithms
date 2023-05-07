@@ -30,7 +30,7 @@ if (min != i)
 temp = array[i];
 array[i] = array[min];
 array[min] = temp;
-print_array(array);
+print_array(array, size);
 }
 }
 }
