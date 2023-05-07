@@ -15,7 +15,6 @@ while (current != NULL)
 listint_t *temp = current->prev;
 while (temp != NULL && temp->n > current->n)
 {
-print_list(*list);
 temp = temp->prev;
 }
 if (temp == NULL)
@@ -47,6 +46,7 @@ temp->next->prev = current;
 }
 temp->next = current;
 }
+print_list(*list);
 current = current->next;
 }
 }
