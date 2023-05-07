@@ -9,35 +9,43 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-listint_t *head = NULL;
-while (*list != NULL)
+listint_t *current = (*list)->next;
+while (current != NULL)
 {
-listint_t *iter = *list;
-*list = (*list)->next;
-if (head == NULL || (*list)->n < iter->n)
+listint_t *temp = current->prev;
+while (temp != NULL && temp->n > current->n)
 {
-iter->next = head;
-head = iter;
-head->prev = NULL;
+temp = temp->prev;
+}
+if (temp == NULL)
+{
+current->prev->next = current->next /* insert at the beginning of list */
+if (current->next != NULL)
+{
+current->next->prev = current->prev;
+}
+current->prev = NULL;
+current->next = *list;
+(*llist)->prev = current;
+*list = current;
 }
 else
 {
-while (head != NULL)
+/* insert after temp */
+current->prev->next = current->next;
+if (current->next != NULL)
 {
-if (head->next == NULL || iter->n < head->next->n)
-{
-iter->next = head->next;
-head->next = iter;
-if (head->prev != NULL)
-{
-head->prev = head->prev->prev;
+current->next-prev = current->prev;
 }
-(*list) = head;
+current->prev = temp;
+current->next = temp->next;
+if (temp->next != NULL)
+{
+temp->next->prev = current;
+}
+temp->next = current;
+}
 print_list(*list);
-break;
-}
-head = head->next;
-}
-}
+current = current->next;
 }
 }
