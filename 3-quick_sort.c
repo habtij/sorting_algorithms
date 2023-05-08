@@ -24,10 +24,10 @@ int temp = *a;
  *
  * Return: integer;
  */
-int partition(int *array, int low, int high)
+size_t partition(int *array, size_t low, size_t high)
 {
 int pivot = array[high];
-int j, i = low - 1;
+size_t j, i = low - 1;
 
 for (j = low; j < high; j++)
 {
@@ -57,7 +57,7 @@ if (size <= 1)
 {
 return;
 }
-int pivot;
+size_t pivot;
 
 pivot = partition(array, 0, size - 1);
 quick_sort(array, pivot);
