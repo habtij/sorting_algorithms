@@ -57,7 +57,9 @@ if (size <= 1)
 {
 return;
 }
-int pivot = partition(array, 0, size - 1);
+int pivot;
+
+pivot = partition(array, 0, size - 1);
 quick_sort(array, pivot);
 quick_sort(array + pivot + 1, size - pivot - 1);
 }
